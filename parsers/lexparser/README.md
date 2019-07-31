@@ -22,7 +22,7 @@ It adds precedence values to the operators in order to break the ambiguous deriv
 | `'('` and `')'`         |    Grouping        |        2         |
 | `'['` and `']'`         |    Grouping Braces |        3         |
 |      char               |    Concat          |        4         |
-|      `'|'`              |    Or              |        5         |
+|      ``\|``             |    Or              |        5         |
 |      `'^'`              |    Prefix          |        6         |
 |  `'?'`, `'*'` and `'+'` |    Postfix         |        7         |
 
