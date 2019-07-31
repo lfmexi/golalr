@@ -61,7 +61,6 @@ scanner := lexparser.NewLexScanner(input)
 ```go
 parser := lexparser.NewLexerParser(scanner)
 
-// The 0 parameter indicates that your parser will begin with a precedence=0
 expression, err := parser.Parse()
 
 if err != nil {
