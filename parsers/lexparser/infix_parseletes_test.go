@@ -9,7 +9,7 @@ func Test_charInfixParselet_Parse_Error(t *testing.T) {
 	getparser := func(input string, delimiters ...string) LexerParser {
 		lexscanner := NewLexScanner(input)
 		for _, delimiter := range delimiters {
-			lexscanner.Delimiters[delimiter] = delimiter
+			lexscanner.AddDelimiter(delimiter)
 		}
 		return NewLexerParser(lexscanner)
 	}
@@ -42,7 +42,7 @@ func Test_binaryOperatorParselet_Parse(t *testing.T) {
 	getparser := func(input string, delimiters ...string) LexerParser {
 		lexscanner := NewLexScanner(input)
 		for _, delimiter := range delimiters {
-			lexscanner.Delimiters[delimiter] = delimiter
+			lexscanner.AddDelimiter(delimiter)
 		}
 		return NewLexerParser(lexscanner)
 	}
@@ -74,7 +74,7 @@ func Test_rightComplexInfixParselet_Parse(t *testing.T) {
 	getparser := func(input string, delimiters ...string) LexerParser {
 		lexscanner := NewLexScanner(input)
 		for _, delimiter := range delimiters {
-			lexscanner.Delimiters[delimiter] = delimiter
+			lexscanner.AddDelimiter(delimiter)
 		}
 		return NewLexerParser(lexscanner)
 	}

@@ -1,6 +1,9 @@
 package lexparser
 
-import "github.com/lfmexi/golalr/symbols"
+import (
+	"github.com/lfmexi/golalr/prattparser"
+	"github.com/lfmexi/golalr/prattparser/symbols"
+)
 
 // LexScanner is the struct that implements the prattparser.TokenInterface iterator.
 // Exposes the Delimiters map, which contains the characters that should be ignored as
@@ -9,11 +12,11 @@ type LexScanner struct {
 	index       int
 	text        string
 	punctuators map[rune]LexTokenType
-	Delimiters  map[string]string
+	delimiters  map[string]string
 }
 
 // NewLexScanner returns a pointer to LexScanner based on an input string
-func NewLexScanner(text string) *LexScanner {
+func NewLexScanner(text string) prattparser.TokenIterator {
 	scanner := &LexScanner{
 		0,
 		text,
@@ -49,10 +52,15 @@ func (l *LexScanner) Next() symbols.Token {
 		punct := l.punctuators[punctuatorChar]
 		if punct != 0 && punct.isPunctuator() {
 			return &LexToken{string(punctuatorChar), punct}
-		} else if delim := l.Delimiters[string(character)]; delim == "" {
+		} else if delim := l.delimiters[string(character)]; delim == "" {
 			return &LexToken{string(character), Char}
 		}
 	}
 
 	return &LexToken{"EOF", EOF}
+}
+
+// AddDelimiter adds a string delimiter to the scanner
+func (l *LexScanner) AddDelimiter(delimiter string) {
+	l.delimiters[delimiter] = delimiter
 }

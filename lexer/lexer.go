@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/lfmexi/golalr/lexer/dfa"
-	"github.com/lfmexi/golalr/symbols"
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser/symbols"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 // Lexer is an implementation of TokenIterator
@@ -100,6 +100,11 @@ func (l *Lexer) Next() symbols.Token {
 		_, unknownActionResult = l.unknownAction(l, substr)
 	}
 	return newLexSymbol(l, types.UnknownSymbol, substr, unknownActionResult)
+}
+
+// AddDelimiter not implemented
+func (l *Lexer) AddDelimiter(del string) {
+	// Not implemented
 }
 
 func (l Lexer) preEvaluate(str string) bool {

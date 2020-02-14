@@ -5,8 +5,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/lfmexi/golalr/symbols"
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser"
+
+	"github.com/lfmexi/golalr/prattparser/symbols"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 const (
@@ -99,22 +101,22 @@ func TestArithmeticLexer_Next(t *testing.T) {
 	lexerForWrongInput := builder.Build("4 % 3")
 	tests := []struct {
 		name  string
-		lexer *Lexer
+		lexer prattparser.TokenIterator
 		want  string
 	}{
-		{"Number", &lexer, "number"},
-		{"Plus", &lexer, "plus"},
-		{"Number", &lexer, "number"},
-		{"Factor", &lexer, "factor"},
-		{"LeftParen", &lexer, "leftParen"},
-		{"Number", &lexer, "number"},
-		{"Minus", &lexer, "minus"},
-		{"Number", &lexer, "number"},
-		{"RightParen", &lexer, "rightParen"},
-		{"EOF", &lexer, "EOF"},
-		{"number", &lexerForSpaced, "number"},
-		{"number", &lexerForWrongInput, "number"},
-		{"wrongInput", &lexerForWrongInput, "UNKNOWN_SYMBOL"},
+		{"Number", lexer, "number"},
+		{"Plus", lexer, "plus"},
+		{"Number", lexer, "number"},
+		{"Factor", lexer, "factor"},
+		{"LeftParen", lexer, "leftParen"},
+		{"Number", lexer, "number"},
+		{"Minus", lexer, "minus"},
+		{"Number", lexer, "number"},
+		{"RightParen", lexer, "rightParen"},
+		{"EOF", lexer, "EOF"},
+		{"number", lexerForSpaced, "number"},
+		{"number", lexerForWrongInput, "number"},
+		{"wrongInput", lexerForWrongInput, "UNKNOWN_SYMBOL"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -130,21 +132,21 @@ func TestMultiContextLexer_Next(t *testing.T) {
 	lexer := builder.Build("<a\nb>Hello world,This is a new line</a>")
 	tests := []struct {
 		name   string
-		lexer  *Lexer
+		lexer  prattparser.TokenIterator
 		want   types.TokenType
 		column int
 		line   int
 		value  interface{}
 	}{
-		{string(openTagDef), &lexer, openTagDef, 1, 1, nil},
-		{string(id), &lexer, id, 2, 1, nil},
-		{string(id), &lexer, id, 2, 2, nil},
-		{string(closeTagDef), &lexer, closeTagDef, 3, 2, nil},
-		{string(text), &lexer, text, 4, 2, nil},
-		{string(openCloseDef), &lexer, openCloseDef, 34, 1, nil},
-		{string(id), &lexer, id, 36, 1, nil},
-		{string(closeTagDef), &lexer, closeTagDef, 37, 1, nil},
-		{string(EOF), &lexer, EOF, 37, 1, nil},
+		{string(openTagDef), lexer, openTagDef, 1, 1, nil},
+		{string(id), lexer, id, 2, 1, nil},
+		{string(id), lexer, id, 2, 2, nil},
+		{string(closeTagDef), lexer, closeTagDef, 3, 2, nil},
+		{string(text), lexer, text, 4, 2, nil},
+		{string(openCloseDef), lexer, openCloseDef, 34, 1, nil},
+		{string(id), lexer, id, 36, 1, nil},
+		{string(closeTagDef), lexer, closeTagDef, 37, 1, nil},
+		{string(EOF), lexer, EOF, 37, 1, nil},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 
 	"github.com/lfmexi/golalr/expressions"
 	"github.com/lfmexi/golalr/parsers/lexparser"
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 type innerToken struct {

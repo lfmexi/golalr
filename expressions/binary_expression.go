@@ -1,6 +1,6 @@
 package expressions
 
-import "github.com/lfmexi/golalr/symbols"
+import "github.com/lfmexi/golalr/prattparser/symbols"
 
 // BinaryExpression is an interface that tries to represent all the
 // expresions with two childs

@@ -1,7 +1,7 @@
 package grammarparser
 
 import "github.com/lfmexi/golalr/prattparser"
-import "github.com/lfmexi/golalr/symbols"
+import "github.com/lfmexi/golalr/prattparser/symbols"
 import "github.com/lfmexi/golalr/expressions"
 
 // ProductionExpression is the defined expression for grammar productions

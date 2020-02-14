@@ -2,7 +2,7 @@ package lexparser
 
 import (
 	"github.com/lfmexi/golalr/prattparser"
-	"github.com/lfmexi/golalr/symbols"
+	"github.com/lfmexi/golalr/prattparser/symbols"
 )
 
 func newSimpleExpression(t symbols.Token) prattparser.Expression {

@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 func TestNewLexerBuilder(t *testing.T) {
@@ -91,9 +91,6 @@ func TestBuilder_BuildSimpleLexer(t *testing.T) {
 			}
 			if reflect.DeepEqual(got, tt.notWant) {
 				t.Errorf("Builder.Build() = %v, want %v", got, tt.notWant)
-			}
-			if got.input != tt.args.input {
-				t.Errorf("Builder.Build().input = %v, want %v", got, tt.args.input)
 			}
 		})
 	}

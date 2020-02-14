@@ -3,13 +3,15 @@ package lexparser
 import (
 	"reflect"
 	"testing"
+
+	"github.com/lfmexi/golalr/prattparser"
 )
 
 func TestLexScanner_Next(t *testing.T) {
 	lexScanner := NewLexScanner("125ewd*(a|nb)")
 	tests := []struct {
 		name string
-		l    *LexScanner
+		l    prattparser.TokenIterator
 		want string
 	}{
 		{"1", lexScanner, "1"},

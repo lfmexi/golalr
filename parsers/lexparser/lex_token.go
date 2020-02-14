@@ -1,6 +1,6 @@
 package lexparser
 
-import "github.com/lfmexi/golalr/types"
+import "github.com/lfmexi/golalr/prattparser/types"
 
 // LexToken is a Token implementation for the lexparser
 type LexToken struct {

@@ -1,6 +1,6 @@
 package dfa
 
-import "github.com/lfmexi/golalr/types"
+import "github.com/lfmexi/golalr/prattparser/types"
 
 // BuildDFA creates a DFA using an AnnotatedAST for the creation of
 // its inner states

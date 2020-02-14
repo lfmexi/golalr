@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/lfmexi/golalr/parsers/lexparser"
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 func TestBuildDFA_WithSuccessfulValidations(t *testing.T) {

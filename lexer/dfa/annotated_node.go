@@ -2,7 +2,7 @@ package dfa
 
 import (
 	"github.com/lfmexi/golalr/parsers/lexparser"
-	"github.com/lfmexi/golalr/symbols"
+	"github.com/lfmexi/golalr/prattparser/symbols"
 )
 
 type annotatedASTNode struct {

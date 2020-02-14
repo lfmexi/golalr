@@ -1,6 +1,6 @@
 package prattparser
 
-import "github.com/lfmexi/golalr/symbols"
+import "github.com/lfmexi/golalr/prattparser/symbols"
 
 // PrefixParselet is an interface that generates parsers for a prefix operator
 type PrefixParselet interface {

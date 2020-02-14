@@ -2,7 +2,7 @@ package golalr
 
 import (
 	"github.com/lfmexi/golalr/lexer"
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 type Symbol interface {

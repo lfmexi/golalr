@@ -15,7 +15,7 @@ func main() {
 
 	input := "E plus T"
 	scanner := grammarLexerBuilder.Build(input)
-	parser := grammarparser.NewProductionParser(&scanner)
+	parser := grammarparser.NewProductionParser(scanner)
 	expression, _ := parser.Parse()
 	fmt.Println(expression.Token().Text())
 	expression = expression.Next()

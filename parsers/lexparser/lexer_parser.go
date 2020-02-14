@@ -11,7 +11,7 @@ type LexerParser struct {
 
 // NewLexerParser creates a new LexerParser, register its parselets
 // and returns it
-func NewLexerParser(l *LexScanner) LexerParser {
+func NewLexerParser(l prattparser.TokenIterator) LexerParser {
 	parser := prattparser.NewParser(l)
 
 	parser.RegisterPrefixParselet(Char, &simpleParselet{})

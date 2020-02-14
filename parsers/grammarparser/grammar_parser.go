@@ -3,7 +3,6 @@ package grammarparser
 import (
 	"github.com/lfmexi/golalr/expressions"
 	"github.com/lfmexi/golalr/prattparser"
-	"github.com/lfmexi/golalr/symbols"
 )
 
 // ProductionParser is a parser for left recursive grammars
@@ -12,7 +11,7 @@ type ProductionParser struct {
 }
 
 // NewProductionParser creates a new Production parser
-func NewProductionParser(scanner symbols.TokenIterator) ProductionParser {
+func NewProductionParser(scanner prattparser.TokenIterator) ProductionParser {
 	parser := prattparser.NewParser(scanner)
 	parser.RegisterPrefixParselet(SymbolID, &simpleParselet{})
 	parser.RegisterInfixParselet(SymbolID, &idInfixParselet{})

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/lfmexi/golalr/symbols"
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser/symbols"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 type tokenType int
@@ -54,6 +54,8 @@ type tokenIterator struct{}
 func (*tokenIterator) Next() symbols.Token {
 	return &testToken{text: "foo", tType: foo}
 }
+
+func (*tokenIterator) AddDelimiter(del string) {}
 
 func TestNewParser(t *testing.T) {
 	fmt.Println("Test NewParser")
@@ -130,6 +132,8 @@ func (c *customIterator) Next() symbols.Token {
 	}
 	return &testToken{"", EOF}
 }
+
+func (*customIterator) AddDelimiter(del string) {}
 
 func TestConsume(t *testing.T) {
 	fmt.Println("Test Consume")

@@ -3,7 +3,8 @@ package lexer
 import (
 	"github.com/lfmexi/golalr/lexer/dfa"
 	"github.com/lfmexi/golalr/parsers/lexparser"
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 // Action is a type of function that is used as a callback for the Lexer's terminal definitions
@@ -96,7 +97,7 @@ func (b *Builder) AddTerminalDefinition(id types.TokenType, regexp string, actio
 }
 
 // Build creates a new Lexer typed value
-func (b *Builder) Build(input string) Lexer {
+func (b *Builder) Build(input string) prattparser.TokenIterator {
 	dfas := make(map[string][]*dfa.DFA)
 	actions := make(map[string]map[types.TokenType]Action)
 	for context, asts := range b.annotatedTrees {
@@ -108,7 +109,7 @@ func (b *Builder) Build(input string) Lexer {
 		}
 	}
 
-	return Lexer{
+	return &Lexer{
 		"default",
 		0,
 		input,

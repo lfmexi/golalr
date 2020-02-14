@@ -1,7 +1,7 @@
 package grammarparser
 
 import "github.com/lfmexi/golalr/prattparser"
-import "github.com/lfmexi/golalr/symbols"
+import "github.com/lfmexi/golalr/prattparser/symbols"
 
 type idInfixParselet struct{}
 

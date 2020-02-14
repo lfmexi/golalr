@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/lfmexi/golalr/parsers/lexparser"
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 func TestDFA_GetTerminal(t *testing.T) {

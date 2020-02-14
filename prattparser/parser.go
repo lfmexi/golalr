@@ -1,4 +1,4 @@
-// Copyright 2017 Luis Fernando Morales
+// Copyright 2020 Luis Fernando Morales
 
 /***
     This library is free software: you can redistribute it and/or modify
@@ -23,20 +23,20 @@ package prattparser
 import (
 	"fmt"
 
-	"github.com/lfmexi/golalr/symbols"
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser/symbols"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 // Parser is the struct that represents a Top Down Operator Precedence Parser
 type Parser struct {
-	tokenIterator   symbols.TokenIterator
+	tokenIterator   TokenIterator
 	tokensBuffer    []symbols.Token
 	prefixParselets map[types.TokenType]PrefixParselet
 	infixParselets  map[types.TokenType]InfixParselet
 }
 
 // NewParser is a constructor of Parser values. It takes an implementation of the TokenIterator interface
-func NewParser(iterator symbols.TokenIterator) Parser {
+func NewParser(iterator TokenIterator) Parser {
 	return Parser{
 		iterator,
 		make([]symbols.Token, 0),

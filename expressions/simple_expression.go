@@ -1,7 +1,7 @@
 package expressions
 
 import (
-	"github.com/lfmexi/golalr/symbols"
+	"github.com/lfmexi/golalr/prattparser/symbols"
 )
 
 type SimpleExpression interface {

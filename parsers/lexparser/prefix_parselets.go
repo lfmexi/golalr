@@ -2,7 +2,7 @@ package lexparser
 
 import (
 	"github.com/lfmexi/golalr/prattparser"
-	"github.com/lfmexi/golalr/symbols"
+	"github.com/lfmexi/golalr/prattparser/symbols"
 )
 
 type simpleParselet struct{}

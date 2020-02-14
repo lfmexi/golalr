@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/lfmexi/golalr/lexer"
-	"github.com/lfmexi/golalr/symbols"
-	"github.com/lfmexi/golalr/types"
+	"github.com/lfmexi/golalr/prattparser/symbols"
+	"github.com/lfmexi/golalr/prattparser/types"
 )
 
 func main() {

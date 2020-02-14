@@ -5,7 +5,7 @@ import (
 
 	"github.com/lfmexi/golalr/expressions"
 	"github.com/lfmexi/golalr/prattparser"
-	"github.com/lfmexi/golalr/symbols"
+	"github.com/lfmexi/golalr/prattparser/symbols"
 )
 
 // LexerExpression implements the prattparser.Expression interface
